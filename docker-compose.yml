@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    container_name: consumer
+    image: microservices-messaging-consumer:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
